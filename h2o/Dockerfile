@@ -53,7 +53,7 @@ RUN mkdir -p /var/run/h2o
 RUN mkdir -p /var/www/h2o
 
 RUN openssl genrsa -out /etc/h2o/server.key 4096
-RUN openssl req -new -newkey rsa:4096 -days 36500 -nodes -subj "/C=/ST=/L=/O=/CN=nabezokodaikon" -keyout /etc/h2o/server.key -out /etc/h2o/server.csr
+RUN openssl req -new -newkey rsa:4096 -days 36500 -nodes -subj "/C=/ST=/L=/O=/CN=foo" -keyout /etc/h2o/server.key -out /etc/h2o/server.csr
 RUN openssl x509 -req -days 36500 -in /etc/h2o/server.csr -signkey /etc/h2o/server.key -out /etc/h2o/server.crt
 ADD ./h2o.conf /etc/h2o/h2o.conf
 
