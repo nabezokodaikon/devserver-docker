@@ -70,7 +70,7 @@ RUN chown -R h2o:h2o /var/www/h2o
 
 VOLUME ["/var/log/h2o"]
 
-RUN echo hello h2o!!! > /var/www/h2o/index.html
+RUN echo hello docker-compose! > /var/www/h2o/index.html
 
 EXPOSE 80
 

@@ -1,7 +1,7 @@
 h2o:
-    build: ./
+    build: ./h2o
     ports:
         - "80:80"
     volumes:
-        - log:/var/log/h2o
+        - ./log/h2o:/var/log/h2o
 
