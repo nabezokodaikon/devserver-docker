@@ -21,13 +21,12 @@ RUN apt-get clean && \
     rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
 RUN mkdir -p /opt/gitbucket/data
-
 RUN wget https://github.com/takezoe/gitbucket/releases/download/3.3/gitbucket.war -P /opt/gitbucket
-# ADD ./gitbucket.conf /opt/gitbucket/data/gitbucket.conf
+RUN useradd -s /bin/nologin gitbucket
+
+ADD ./startup.sh /opt/gitbucket/startup.sh
+RUN chmod 744 /opt/gitbucket/startup.sh
 
 VOLUME /opt/gitbucket/data
 EXPOSE 52201
-
-ENTRYPOINT ["/usr/bin/java"]
-CMD ["-jar", "/opt/gitbucket/gitbucket.war", "--port=52201", "--gitbucket.home=/opt/gitbucket/data"]
-
+ENTRYPOINT ["/opt/gitbucket/startup.sh"]
