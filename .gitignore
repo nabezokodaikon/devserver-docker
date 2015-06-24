@@ -1,2 +1,3 @@
 h2o/log/
-gitbucket/data
+gitbucket/data/
+gitbucket/log/

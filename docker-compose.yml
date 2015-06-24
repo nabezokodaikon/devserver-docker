@@ -10,3 +10,4 @@ gitbucket:
         - "52201:52201"
     volumes:
         - ./gitbucket/data:/opt/gitbucket/data
+        - ./gitbucket/log:/var/log/gitbucket

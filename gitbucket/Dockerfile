@@ -28,5 +28,8 @@ ADD ./startup.sh /opt/gitbucket/startup.sh
 RUN chmod 744 /opt/gitbucket/startup.sh
 
 VOLUME /opt/gitbucket/data
+VOLUME /var/log/gitbucket
+
 EXPOSE 52201
+
 ENTRYPOINT ["/opt/gitbucket/startup.sh"]
