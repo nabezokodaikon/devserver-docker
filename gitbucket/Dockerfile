@@ -24,12 +24,12 @@ RUN mkdir -p /opt/gitbucket/data
 RUN wget https://github.com/takezoe/gitbucket/releases/download/3.3/gitbucket.war -P /opt/gitbucket
 RUN useradd -s /bin/nologin gitbucket
 
-ADD ./startup.sh /opt/gitbucket/startup.sh
-RUN chmod 744 /opt/gitbucket/startup.sh
+ADD ./init.sh /opt/gitbucket/init.sh
+RUN chmod 744 /opt/gitbucket/init.sh
 
 VOLUME /opt/gitbucket/data
 VOLUME /var/log/gitbucket
 
 EXPOSE 52201
 
-ENTRYPOINT ["/opt/gitbucket/startup.sh"]
+ENTRYPOINT ["/opt/gitbucket/init.sh"]
