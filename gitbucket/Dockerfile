@@ -38,6 +38,6 @@ RUN chown gitbucket:gitbucket /opt/gitbucket/start-gitbucket.sh
 VOLUME /opt/gitbucket/data
 VOLUME /var/log/gitbucket
 
-EXPOSE 52201
+EXPOSE 8080
 
 ENTRYPOINT ["/opt/gitbucket/init.sh"]

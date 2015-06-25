@@ -68,11 +68,17 @@ RUN chown -R h2o:h2o /var/log/h2o
 RUN chown -R h2o:h2o /var/run/h2o
 RUN chown -R h2o:h2o /var/www/h2o
 
+ADD ./init.sh /etc/h2o/init.sh
+RUN chmod 744 /etc/h2o/init.sh
+
 VOLUME ["/var/log/h2o"]
 
 RUN echo hello docker-compose! > /var/www/h2o/index.html
 
+# default
 EXPOSE 80
 
-ENTRYPOINT ["/usr/local/bin/h2o"] 
-CMD ["-c", "/etc/h2o/h2o.conf"]
+# gitbucket
+EXPOSE 52201
+
+ENTRYPOINT ["/etc/h2o/init.sh"] 

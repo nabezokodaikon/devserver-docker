@@ -2,12 +2,15 @@ h2o:
     build: ./h2o
     ports:
         - "80:80"
+        - "52201:52201"
     volumes:
         - ./h2o/log:/var/log/h2o
+    links:
+        - gitbucket:git
 gitbucket:
     build: ./gitbucket
     ports:
-        - "52201:52201"
+        - "127.0.0.1:8080:8080"
     volumes:
         - ./gitbucket/data:/opt/gitbucket/data
         - ./gitbucket/log:/var/log/gitbucket
