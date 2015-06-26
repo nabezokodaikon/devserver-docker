@@ -14,3 +14,7 @@ gitbucket:
     volumes:
         - ./gitbucket/data:/opt/gitbucket/data
         - ./gitbucket/log:/var/log/gitbucket
+jenkins:
+    build: ./jenkins
+    ports:
+        - "52202:52202"
