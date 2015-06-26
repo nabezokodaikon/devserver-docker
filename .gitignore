@@ -1,3 +1,5 @@
 h2o/log/
 gitbucket/data/
 gitbucket/log/
+jenkins/jenkins_home/
+jenkins/log/

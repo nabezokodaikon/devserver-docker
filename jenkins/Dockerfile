@@ -17,11 +17,20 @@ RUN apt-get install -y \
     wget
 
 RUN wget -q -O - http://pkg.jenkins-ci.org/debian/jenkins-ci.org.key | apt-key add -
-RUN deb http://pkg.jenkins-ci.org/debian binary/
+RUN echo 'deb http://pkg.jenkins-ci.org/debian binary/' >> /etc/apt/sources.list
 RUN apt-get update
-RUN apt-get install jenkins
+RUN apt-get install -y \
+    jenkins
 
 RUN apt-get clean && \
     rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
+ADD ./init.sh /usr/local/bin/jenkins.sh
+RUN chmod 744 /usr/local/bin/jenkins.sh
+
+VOLUME /var/lib/jenkins
+VOLUME /var/log/jenkins
+
 EXPOSE 8080
+
+ENTRYPOINT ["/usr/local/bin/jenkins.sh"]

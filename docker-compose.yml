@@ -17,4 +17,7 @@ gitbucket:
 jenkins:
     build: ./jenkins
     ports:
-        - "52202:52202"
+        - "52202:8080"
+    volumes:
+        - ./jenkins/jenkins_home:/var/lib/jenkins
+        - ./jenkins/log:/var/log/jenkins
