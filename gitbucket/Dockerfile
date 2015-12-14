@@ -24,7 +24,7 @@ RUN mkdir -p /var/log/gitbucket
 RUN mkdir -p /var/run/gitbucket
 RUN mkdir -p /opt/gitbucket/data
 
-RUN wget https://github.com/takezoe/gitbucket/releases/download/3.3/gitbucket.war -P /opt/gitbucket
+RUN wget https://github.com/takezoe/gitbucket/releases/download/3.9/gitbucket.war -P /opt/gitbucket
 
 RUN useradd -s /bin/nologin gitbucket
 

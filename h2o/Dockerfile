@@ -32,7 +32,7 @@ RUN apt-get install -y \
 RUN apt-get clean && \
     rm -rf /var/cache/apt/archives/* /var/lib/apt/lists/*
 
-RUN git clone -b v1.6.1 https://github.com/libuv/libuv.git /usr/local/src/libuv
+RUN git clone -b v1.7.5 https://github.com/libuv/libuv.git /usr/local/src/libuv
 WORKDIR /usr/local/src/libuv 
 RUN sh autogen.sh
 RUN ./configure
@@ -40,7 +40,7 @@ RUN make
 RUN make install
 RUN rm -rf /usr/local/src/libuv
 
-RUN git clone -b v1.3.0 https://github.com/h2o/h2o.git /usr/local/src/h2o
+RUN git clone -b v1.6.0 https://github.com/h2o/h2o.git /usr/local/src/h2o
 WORKDIR /usr/local/src/h2o
 RUN cmake -DWITH_BUNDLED_SSL=on .
 RUN make
